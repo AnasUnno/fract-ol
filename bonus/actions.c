@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:51:48 by araji-af          #+#    #+#             */
-/*   Updated: 2023/03/26 03:33:34 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/04/02 01:07:37 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,17 @@ void	zoom_in(double x0, double y0, t_data *data)
 
 void	zoom_out(double x0, double y0, t_data *data)
 {
-	if (data->iter > 100)
-	{
-		data->start_x /= data->scale;
-		data->start_y /= data->scale;
-		data->end_x /= data->scale;
-		data->end_y /= data->scale;
-		data->iter -= 10;
-		data->start_x -= x0;
-		data->start_y -= y0;
-		data->end_x -= x0;
-		data->end_y -= y0;
-		data->move_scale /= data->scale;
-		draw(data);
-	}
+	data->start_x /= data->scale;
+	data->start_y /= data->scale;
+	data->end_x /= data->scale;
+	data->end_y /= data->scale;
+	data->iter -= 10;
+	data->start_x -= x0;
+	data->start_y -= y0;
+	data->end_x -= x0;
+	data->end_y -= y0;
+	data->move_scale /= data->scale;
+	draw(data);
 }
 
 int	key_press(int key, t_data *data)

@@ -6,7 +6,7 @@
 #    By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 14:11:55 by araji-af          #+#    #+#              #
-#    Updated: 2023/03/23 15:15:31 by araji-af         ###   ########.fr        #
+#    Updated: 2023/04/03 18:20:13 by araji-af         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,21 +26,25 @@ FLAGS = -Wall -Wextra -Werror -Imlx
 
 GFLAGS = OpenGL -framework AppKit
 
-all :  $(NAME)
 
-$(NAME) : $(SRCS) $(OBJ) fractol.h
-	cc $(FLAGS) $(SRCS) -lmlx -framework $(GFLAGS) -o $(NAME)
+bonus/%.o : bonus/%.c bonus/header.h
+	cc $(FLAGS) -c $< -o $@
+%.o : %.c fractol.h
+	cc $(FLAGS) -c $< -o $@
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	cc -lmlx -framework $(GFLAGS) $(OBJ) -o $(NAME)
+
+$(NAME_B) : $(OBJ_B)
+	cc -lmlx -framework $(GFLAGS) $(OBJ_B) -o $(NAME_B)
 
 bonus : $(NAME_B)
 
-$(NAME_B) : $(SRCS_B) $(OBJ_B) bonus/header.h
-	cc $(FLAGS) $(SRCS_B) -lmlx -framework $(GFLAGS) -o $(NAME_B)
-
-%.o: %.c
-	cc -c $< -o $@
 clean :
 	rm -rf $(OBJ) $(OBJ_B)
-
+	
 fclean : clean
 	rm -rf $(NAME) $(NAME_B)
 

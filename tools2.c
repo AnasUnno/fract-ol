@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:27:20 by araji-af          #+#    #+#             */
-/*   Updated: 2023/03/26 20:56:19 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:03:54 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	initialise(t_data *data, char **av)
 	data->img = mlx_new_image(data->mlx_ptr, SIZE, SIZE);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->line_length, &data->endian);
-	data->iter = 100;
+	data->iter = 70;
 	data->diff_x = 0.285;
 	data->diff_y = 0.01;
 	data->scale = 0.5;
@@ -29,7 +29,7 @@ void	initialise(t_data *data, char **av)
 	data->start_y = -2;
 	data->end_x = 2;
 	data->end_y = 2;
-	data->color = 0x501200;
+	data->color = 0x640C32;
 	data->lock = 1;
 	draw(data);
 }
@@ -72,7 +72,7 @@ void	protect(int ac, char **av)
 {
 	int	i;
 
-	if (ac <= 1)
+	if (ac <= 1 || ac != 2)
 	{
 		ft_putstr_fd("please pick one of these : mandelbrot, julia.\n", 2);
 		exit (1);
@@ -82,7 +82,7 @@ void	protect(int ac, char **av)
 	{
 		if (!av[i] || !*av[i])
 		{
-			ft_putstr_fd("no fractal specified", 2);
+			ft_putstr_fd("please pick one of these : mandelbrot, julia.\n", 2);
 			exit (1);
 		}
 		i++;

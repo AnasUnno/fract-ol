@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 09:48:48 by araji-af          #+#    #+#             */
-/*   Updated: 2023/03/25 14:28:36 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/04/07 00:21:50 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	wich_frac(t_data *data, char *av)
 		data->identity = 1;
 	else if (!ft_strcmp(av, "julia"))
 		data->identity = 2;
-	else if (!ft_strcmp(av, "multibrot"))
-		data->identity = 3;
 	else
 	{
 		ft_putstr_fd("please pick one of these : mandelbrot, julia.\n", 1);

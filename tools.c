@@ -6,7 +6,7 @@
 /*   By: araji-af <araji-af@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:28:52 by araji-af          #+#    #+#             */
-/*   Updated: 2023/03/26 23:26:39 by araji-af         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:54:55 by araji-af         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	get_color(int i, t_data *data)
 
 	if (i >= data->iter)
 		return (0);
-	r = i * (1 - cos(data->color));
-	b = 4 * i * (1 + cos(data->color)) + 100;
-	g = 3 * i * (1 + sin(data->color));
+	r = i * (1 - sin(data->color));
+	b = 4 * i * (2 + cos(data->color));
+	g = 3 * i * (1 + cos(data->color));
 	return (r << 16 | g << 8 | b);
 }
 
